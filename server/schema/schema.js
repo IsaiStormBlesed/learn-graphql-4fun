@@ -98,6 +98,7 @@ const mutation = new GraphQLObjectType({
         return Client.findByIdAndRemove(args.id);
       },
     },
+    //PROJECT MUTATIONS
     addProject: {
       type: ProjectType,
       args: {
@@ -125,6 +126,15 @@ const mutation = new GraphQLObjectType({
         });
 
         return newProject.save();
+      },
+    },
+    deleteProject: {
+      type: ProjectType,
+      args: {
+        id: { type: GraphQLNonNull(GraphQLID) },
+      },
+      resolve(parent, args) {
+        return Project.findByIdAndRemove(args.id);
       },
     },
   },
