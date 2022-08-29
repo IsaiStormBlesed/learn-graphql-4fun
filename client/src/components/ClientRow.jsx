@@ -7,7 +7,7 @@ export default function ClientRow({ client }) {
       <td>{client.email}</td>
       <td>{client.phone}</td>
       <td>
-        <button>
+        <button className="bg-red-600 text-white px-2 py-2">
           <FaTrash />
         </button>
       </td>
