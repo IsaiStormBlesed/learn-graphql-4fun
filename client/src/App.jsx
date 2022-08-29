@@ -1,5 +1,12 @@
+import Header from "./components/Header";
+
 function App() {
-  return <div className="bg-red-600">hello</div>;
+  return (
+    <>
+      <Header />
+      <h1>HELLO</h1>
+    </>
+  );
 }
 
 export default App;
