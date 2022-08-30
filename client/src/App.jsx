@@ -2,9 +2,28 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import Clients from "./components/Clients";
 import Header from "./components/Header";
 
+const cache = new InMemoryCache({
+  typePolicies: {
+    Query: {
+      fields: {
+        clients: {
+          merge(existing, incoming) {
+            return incoming;
+          },
+        },
+        projects: {
+          merge(existing, incoming) {
+            return incoming;
+          },
+        },
+      },
+    },
+  },
+});
+
 const apolloClient = new ApolloClient({
-  uri: "https://5000-isaistormbl-learngraphq-5l1rc88t499.ws-us63.gitpod.io/graphql",
-  cache: new InMemoryCache(),
+  uri: "https://5000-isaistormbl-learngraphq-kffzoqp0alw.ws-us63.gitpod.io/graphql",
+  cache,
 });
 
 function App() {
